@@ -9,8 +9,9 @@ public final class ImmutableLinkedList implements ImmutableList {
     private Node head;
     private Node tail;
     private int linkedListSize = 0;
+
     public ImmutableLinkedList(Object[] elements) {
-        for(Object element: elements) {
+        for (Object element : elements) {
             addMutable(element);
         }
     }
@@ -59,9 +60,9 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableList add(int index, Object e) {
-       ImmutableLinkedList immutableListCopy = shallowCopy();
-       immutableListCopy.addMutable(index,e);
-       return immutableListCopy;
+        ImmutableLinkedList immutableListCopy = shallowCopy();
+        immutableListCopy.addMutable(index, e);
+        return immutableListCopy;
     }
 
     private ImmutableLinkedList addMutable(int index, Object e) {
@@ -91,7 +92,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     @Override
     public ImmutableLinkedList addAll(Object[] c) {
         ImmutableLinkedList immutableListCopy = shallowCopy();
-        for(Object element: c) {
+        for (Object element : c) {
             immutableListCopy.addMutable(element);
         }
         return immutableListCopy;
@@ -100,7 +101,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     @Override
     public ImmutableList addAll(int index, Object[] c) {
         ImmutableLinkedList immutableListCopy = shallowCopy();
-        for(Object element: c) {
+        for (Object element : c) {
             immutableListCopy.addMutable(index, element);
             index++;
         }
@@ -169,7 +170,7 @@ public final class ImmutableLinkedList implements ImmutableList {
                 return i;
             }
             iteratingNode = iteratingNode.getNext();
-            i ++;
+            i++;
         }
         throw new NullPointerException();
     }
@@ -210,6 +211,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         immutableListCopy.addFirstMutable(e);
         return immutableListCopy;
     }
+
     public ImmutableLinkedList addFirstMutable(Object e) {
         addMutable(0, e);
         if (head.getPrevious() != null) {
@@ -225,8 +227,9 @@ public final class ImmutableLinkedList implements ImmutableList {
 
         return immutableListCopy;
     }
+
     public ImmutableLinkedList addLastMutable(Object e) {
-        addMutable(linkedListSize , e);
+        addMutable(linkedListSize, e);
         return this;
     }
 
@@ -262,6 +265,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         immutableListCopy.removeLastMutable();
         return immutableListCopy;
     }
+
     public ImmutableLinkedList removeLastMutable() {
         removeMutable(linkedListSize - 1);
         setTail(tail.getPrevious());

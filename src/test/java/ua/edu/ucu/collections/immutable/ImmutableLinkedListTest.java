@@ -2,12 +2,36 @@ package ua.edu.ucu.collections.immutable;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ImmutableLinkedListTest  {
     private static final Integer[] testArr = new Integer[]{1,2,3,4,5,6};
+
+    @Test
+    public void testConstructor() {
+        ImmutableLinkedList linkedList = new ImmutableLinkedList();
+        assertEquals(0, linkedList.size());
+
+        linkedList = new ImmutableLinkedList(testArr);
+        Node iteratingNode = linkedList.getHead();
+
+        assertEquals(testArr.length, linkedList.size());
+        for (int i = 0; i < testArr.length; i++) {
+            if (iteratingNode == null) {
+                break;
+            }
+            assertEquals(testArr[i], iteratingNode.getValue());
+            iteratingNode = iteratingNode.getNext();
+        }
+    }
+
+    @Test
+    public void testHeadSetter() {
+        ImmutableLinkedList linkedList = new ImmutableLinkedList();
+        Node testNode = new Node();
+        linkedList.setHead(testNode);
+        assertEquals(testNode, linkedList.getHead());
+    }
 
     @Test
     public void testAdd() {
