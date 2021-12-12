@@ -125,6 +125,8 @@ public class ImmutableLinkedListTest  {
     public void testIsEmpty() {
         ImmutableLinkedList linkedList = new ImmutableLinkedList();
         assertEquals(0, linkedList.size());
+        assertNull(linkedList.getHead());
+        assertNull(linkedList.getTail());
     }
 
     @Test

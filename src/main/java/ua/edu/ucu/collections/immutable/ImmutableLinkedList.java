@@ -165,7 +165,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public int indexOf(Object e) {
         int i = 0;
         Node iteratingNode = head;
-        while (i != linkedListSize || iteratingNode == null) {
+        while (i != linkedListSize || iteratingNode != null) {
             if (iteratingNode.getValue() == e) {
                 return i;
             }
