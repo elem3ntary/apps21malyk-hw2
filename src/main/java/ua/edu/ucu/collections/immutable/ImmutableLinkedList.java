@@ -2,8 +2,6 @@ package ua.edu.ucu.collections.immutable;
 
 import lombok.Setter;
 
-import java.util.NoSuchElementException;
-
 public final class ImmutableLinkedList implements ImmutableList {
     @Setter
     private Node head;
