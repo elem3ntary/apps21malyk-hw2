@@ -1,7 +1,7 @@
 package ua.edu.ucu.collections.immutable;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ImmutableArrayListTest {
     private ImmutableArrayList immutableArrayList;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         immutableArrayList = new ImmutableArrayList();
     }
@@ -49,8 +49,8 @@ public class ImmutableArrayListTest {
         ImmutableArrayList testList = immutableArrayList.add(1);
         testList = testList.addAll(0,new Object[]{1,2,3});
         assertEquals(1, testList.get(0));
-        assertEquals(2, testList.get(1));
-        assertEquals(3, testList.get(2));
+        assertEquals(1, testList.get(1));
+        assertEquals(2, testList.get(2));
 
     }
 
